@@ -46,7 +46,7 @@ sendEmailWhenOffline = (url, retryDelay=1000, retryCount=1, emailConfiguration) 
 loadConfiguration = (id=0) ->
   candidateLocations = [
     path.join __dirname, "..", ".sloef.json"
-    path.join "etc", "sloef.json"
+    path.join "/", "etc", "sloef.json"
   ]
   if id < candidateLocations.length
     location = candidateLocations[id]
@@ -63,6 +63,9 @@ run = () ->
     for url in configuration.urls
       sendEmailWhenOffline(url, configuration.retryDelay, configuration.retryCount, configuration).done()
   .done()
+
+if module.parent == null
+  run()
 
 module.exports.onlineCheck = onlineCheck
 module.exports.onlineCheckWithRetry = onlineCheckWithRetry
