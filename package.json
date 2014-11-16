@@ -1,6 +1,6 @@
 {
   "name": "sloef",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Module to check if online services are still running",
   "main": "build/sloef.js",
   "dependencies": {
