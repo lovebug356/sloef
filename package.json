@@ -2,6 +2,7 @@
   "name": "sloef",
   "version": "0.0.2",
   "description": "Module to check if online services are still running",
+  "main": "build/sloef.js",
   "dependencies": {
     "emailjs": "^0.3.12",
     "gulp-bump": "^0.1.10",
@@ -33,6 +34,6 @@
     "node": ">=0.10.30"
   },
   "bin": {
-    "sloef": "build/sloef.js"
+    "sloef": "build/sloef-cli.js"
   }
 }

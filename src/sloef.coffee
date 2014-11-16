@@ -58,7 +58,7 @@ loadConfiguration = (id=0) ->
   else
     throw new Error "sloef: did not find configuration file"
 
-if module.parent == null
+run = () ->
   loadConfiguration().then (configuration) ->
     for url in configuration.urls
       sendEmailWhenOffline(url, configuration.retryDelay, configuration.retryCount, configuration).done()
@@ -67,3 +67,5 @@ if module.parent == null
 module.exports.onlineCheck = onlineCheck
 module.exports.onlineCheckWithRetry = onlineCheckWithRetry
 module.exports.sendEmailWhenOffline = sendEmailWhenOffline
+module.exports.loadConfiguration = loadConfiguration
+module.exports.run = run
