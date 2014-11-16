@@ -2,15 +2,18 @@ http = require "http"
 Q = require 'q'
 email = require 'emailjs'
 pifpaf = require 'pifpaf'
+path = require 'path'
 
 onlineCheck = (url) ->
   defer = Q.defer()
-  http.get url, (res) ->
+  req = http.get url, (res) ->
+    req.abort()
     if res.statusCode != 200
-      defer.reject new Error "onlineCheck #{url}: Expected statuscode 200, got statuscode #{res.statusCode}"
+      defer.reject new Error "sloef: onlineCheck #{url}: Expected statuscode 200, got statuscode #{res.statusCode}"
     else
       defer.resolve()
   .on 'error', (err) ->
+    req.abort()
     defer.reject err
   return defer.promise
 
