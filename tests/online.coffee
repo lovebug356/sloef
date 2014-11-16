@@ -19,7 +19,7 @@ describe "Sloef.Online", () ->
     .done new Error "should not be reached"
 
   it "should retry multiple times, on non existing sites too", (done) ->
-    Online.onlineCheckWithRetry("http://www.ithingmaosdflinonline.be", 30, 5).then () ->
+    Online.onlineCheckWithRetry("http://www.ithingmaosdflinonline.be", 2, 5).then () ->
       done new Error "this url should not be online"
     .fail (err) ->
       done()
