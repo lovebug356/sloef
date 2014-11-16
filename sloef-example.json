@@ -1,0 +1,15 @@
+{
+  "server": {
+    "user": "xxx@xxx.xx",
+    "password": "xxx",
+    "host": "smtp.gmail.com",
+    "ssl": true
+  },
+  "from": "xxx@xxx.xx",
+  "to": "xxx@xxx.xx",
+  "retryDelay": 60,
+  "retryCount": 5,
+  "urls": [
+    "http://www.nodejs.org"
+  ]
+}
