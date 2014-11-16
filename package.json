@@ -2,8 +2,8 @@
   "name": "sloef",
   "version": "0.0.1",
   "description": "Module to check if online services are still running",
-  "private": "true",
   "dependencies": {
+    "emailjs": "^0.3.12",
     "gulp-bump": "^0.1.10",
     "gulp-git": "^0.4.3",
     "gulp-install": "^0.1.5",
@@ -29,6 +29,9 @@
     "lodash": "~2.4.1"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=0.10.30"
+  },
+  "bin": {
+    "sloef": "build/sloef.js"
   }
 }

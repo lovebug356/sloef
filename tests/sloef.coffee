@@ -1,4 +1,4 @@
-Online = require "../src/online"
+Online = require "../src/sloef"
 
 describe "Sloef.Online", () ->
   it "should detect online pages", (done) ->

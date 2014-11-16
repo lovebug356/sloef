@@ -1,5 +1,7 @@
 http = require "http"
 Q = require 'q'
+email = require 'emailjs'
+pifpaf = require 'pifpaf'
 
 onlineCheck = (url) ->
   defer = Q.defer()
@@ -24,5 +26,26 @@ onlineCheckWithRetry = (url, retryDelay=1000, retryCount=1) ->
     else
       throw new Error "onlineCheck #{url}: Failed #{retryCount} times"
 
+sendEmailWhenOffline = (url, retryDelay=1000, retryCount=1, emailConfiguration) ->
+  onlineCheckWithRetry(url, retryDelay, retryCount).fail (err) ->
+    server = email.server.connect emailConfiguration.server
+    server.send
+      from: emailConfiguration.from
+      to: emailConfiguration.to
+      subject: "sloef report: #{url} is online for #{retryCount} times"
+      text: err.message
+
+loadConfiguration = () ->
+  pifpaf.isFile(".sloef.json").then () ->
+    return require ".sloef.json"
+  .fail () ->
+    pifpaf.isFile("/etc/sloef.json").then () ->
+      return require "/etc/sloef.json"
+    throw new Error "sloef: did not find configuration file"
+
+if module.parent == null
+  loadConfiguration().then (configuration) ->
+
 module.exports.onlineCheck = onlineCheck
 module.exports.onlineCheckWithRetry = onlineCheckWithRetry
+module.exports.sendEmailWhenOffline = sendEmailWhenOffline
