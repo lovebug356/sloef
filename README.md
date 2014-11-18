@@ -10,7 +10,7 @@ Sloef is available via [git](https://github.com/lovebug356/sloef) or [npm](https
 
 or
 
-`git clone https://github.com/lovebug356/sloef`
+`git clone git@github.com:lovebug356/sloef.git`
 
 ## Configuration
 
