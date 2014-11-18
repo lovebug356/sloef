@@ -1,0 +1,9 @@
+[Unit]
+Description=Check if web services are online
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/sloef
+
+#[Install]
+#WantedBy=multi-user.target

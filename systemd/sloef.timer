@@ -1,0 +1,9 @@
+[Unit]
+Description=Check if web services are online
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=2h
+
+[Install]
+WantedBy=timers.target
