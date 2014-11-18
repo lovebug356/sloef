@@ -25,7 +25,7 @@ A configuration file (`/etc/sloef.json` or `.sloef.json`) should have the conten
   },
   "from": "xxx@xxx.xx",
   "to": "xxx@xxx.xx",
-  "retryDelay": 60,
+  "retryDelay": 60000,
   "retryCount": 5,
   "urls": [
     "http://www.nodejs.org"
