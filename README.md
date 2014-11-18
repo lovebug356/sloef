@@ -4,7 +4,13 @@ Sloef is a small module that checks if online services (like web pages) are stil
 
 ## Installation
 
+Sloef is available via [git](https://github.com/lovebug356/sloef) or [npm](https://www.npmjs.org/package/sloef).
+
 `npm install -g sloef`
+
+or
+
+`git clone https://github.com/lovebug356/sloef`
 
 ## Configuration
 
