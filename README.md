@@ -14,7 +14,7 @@ or
 
 ## Configuration
 
-A configuration file (`/etc/sloef.json`) should have the content:
+A configuration file (`/etc/sloef.json` or `.sloef.json`) should have the content:
 ```
 {
   "server": {
